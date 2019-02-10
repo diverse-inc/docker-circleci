@@ -1,0 +1,7 @@
+FROM docker:18.09-git
+
+RUN apk add --no-cache python groff jq less && \
+    apk add --no-cache --virtual .build-deps py-pip && \
+    pip install --no-cache-dir awscli && \
+    apk del .build-deps
+
